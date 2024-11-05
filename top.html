@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+</head>
+<style>
+    #content-2{
+        display: none;
+    }
+</style>
+<body>
+    <div id="content-1">
+        <p>how are you</p>
+        <button id="go-1" onclick="goContent()">Go</button>
+    </div>
+    <div id="content-2">
+        <p>how are you doing</p>
+        <button id="go-2" onclick="goContento()">Go</button>
+    </div>
+    <script>
+        function goContent() {
+            document.getElementById('content-1').style.display ='none';
+            document.getElementById('content-2').style.display ='block';
+        }
+        function goContento() {
+            document.getElementById('content-2').style.display ='none';
+            document.getElementById('content-1').style.display ='block';
+        }
+    </script>
+</body>
+</html>

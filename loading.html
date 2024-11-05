@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Earn with tp-coin">
+    <meta name="keywords" content="earn a lot of money with Tp-point">
+    <meta name="author" content="BIOR REVOLUTION">
+    <link rel="icon" href="logo.png">
+    <title>Loading...</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #10121f;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #container {
+            margin: 0;
+        }
+        #load {
+            font-size: 200px;
+        }
+        #progress-container {
+            width: 100%;
+            max-width: 600px; /* Adjust as needed */
+            background-color: #333;
+            height: 50px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.1s;
+        }
+        #error-message {
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <span id="load">🚀</span><br><br>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="error-message" style="display: none;">
+            Internet connection was interrupted.
+        </div>
+    </div>
+    <script>
+        var progressBar = document.getElementById('progress-bar');
+        var errorMessage = document.getElementById('error-message');
+        var width = 0;
+        var interval;
+        var increment;
+        var intervalTime;
+
+        function startLoading(isOnline) {
+            // Set loading parameters based on connectivity
+            if (isOnline) {
+                increment = 2; // Fast progress increment
+                intervalTime = 50; // Fast progress interval
+                document.getElementById('progress-container').style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                increment = 0.5; // Slow progress increment
+                intervalTime = 100; // Slow progress interval
+                document.getElementById('progress-container').style.display = 'block';
+                errorMessage.style.display = 'block';
+            }
+
+            // Clear any existing interval
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        window.location.href = 'tp.authentication.html';
+                    }, 500); // Small delay before redirect
+                } else {
+                    width += increment;
+                    if (width > 100) width = 100; // Prevent width from exceeding 100%
+                    progressBar.style.width = width + '%';
+                }
+            }, intervalTime);
+        }
+
+        // Initial loading setup
+        startLoading(navigator.onLine);
+
+        // Event listeners for online and offline events
+        window.addEventListener('online', function() {
+            startLoading(true);
+        });
+
+        window.addEventListener('offline', function() {
+            startLoading(false);
+        });
+    </script>
+</body>
+</html>

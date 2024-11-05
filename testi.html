@@ -1,0 +1,79 @@
+
+<button onclick="showSlider()">Show</button>
+<button onclick="hideSlider()">Hide</button>
+<div id="slider" style="display: none;">Sliding Text</div>
+```
+
+<style>
+#slider {
+  overflow: hidden;
+  width: 200px; /* adjust the width to your needs */
+  height: 20px; /* adjust the height to your needs */
+  transform: translateX(100%); /* hide the text initially */
+  transition: transform 1s; /* smooth transition */
+}
+
+#slider.slide-in {
+  transform: translateX(0); /* show the text */
+}
+Here is a simplified solution using two buttons, where the "Hide" button will simply set the element to `display: none` without sliding:
+
+
+
+
+
+
+
+#slider.show {
+  display: block;
+  transform: translateX(0); /* show the text */
+}
+
+
+
+
+
+
+
+ 
+</style>
+
+<script>
+function showSlider() {
+  const slider = document.getElementById('slider');
+  slider.style.display = 'block';
+  slider.classList.add('show');
+}
+
+function hideSlider() {
+  const slider = document.getElementById('slider');
+  slider.style.display = 'none';
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

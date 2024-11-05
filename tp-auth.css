@@ -1,0 +1,164 @@
+ #signupEmail, #signupPassword, #signupUsername, #loginEmail, #loginPassword {
+            font-size: 21px;
+            font-family: courier;
+            background: transparent;
+            color: purple;
+            border: none;
+            outline: none;
+            width: calc(100% - 60px); /* Adjusted width to account for the eye icon */
+            height: 40px;
+        }
+        #signupPassword, #loginPassword{
+            letter-spacing: 10px;
+        }
+        body {
+            background-color: #10121f; Gradient from black to light purple */
+            text-align: center;
+            font-family: courier;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        #file {
+            font-size: 20px;
+            background-color: white;
+            color: white;
+            border-radius: 5px;
+            height: 50px;
+            font-family: courier;
+            width: 250px;
+        }
+        #submitSignup, #submitLogin {
+            font-size: 20px;
+            background-color: #2e365b;
+            color: white;
+            border-radius: 5px;
+            height: 50px;
+            font-family: courier;
+            width: 310px;
+            margin-left: 12px;
+            position: relative;
+            border: 1px solid black;
+            
+        }
+        #submitSignup:active, #submitLogin:active {
+            background-color: #10121f;
+        }
+        #submitSignup.disabled, #submitLogin.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .button-text {
+            display: inline-block;
+        }
+        #toggleButton {
+            color: white;
+            font-family: courier;
+            cursor: pointer;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        #loginForm, #signupForm {
+           display: none;
+            position: relative;
+            margin: 20px auto;
+            width: calc(100% - 40px);
+            height: 40px;
+        }
+        .gender-option {
+            display: inline-block;
+            font-size: 30px;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .selected {
+            border-color: green;
+        }
+        .select {
+            display: inline-block;
+            height: autopx;
+            width: 310px;
+            border: 2px solid black;
+            margin-left: 10px;
+            border-radius: 5px;
+            padding: 2px;
+            position: relative;
+            transition: border-color 0.5s
+            
+             ease; /* Smooth transition for border color change */
+        }
+        .select:focus-within {
+            border-color: #9370DB; /* Purple border when any input inside is focused */
+        }
+        .input-selected {
+            border-color: green;
+        }
+        #user-emoji {
+            font-size: 20px;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        .shake {
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: purple;
+        }
+        /* Loading Animation */
+        .loading-animation {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading-animation div {
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            border-radius: 100%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-animation .bounce1 {
+            animation-delay: -0.32s;
+        }
+
+        .loading-animation .bounce2 {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        #title{
+            text-align: center;
+        }
+        i{
+            margin-left: 20px;
+        }

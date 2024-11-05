@@ -1,0 +1,124 @@
+ 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlQKhm95HtsCl8tIigbydIDMSM40U7ky0",
+            authDomain: "tp-point.firebaseapp.com",
+            projectId: "tp-point",
+            storageBucket: "tp-point.appspot.com",
+            messagingSenderId: "552342557568",
+            appId: "1:552342557568:web:4a37d110d655ad02c56765"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Function to retrieve query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                username: params.get('username')
+            };
+        }
+
+        // Fetch user data based on username
+        async function loadUserData(username) {
+            const userRef = ref(database, 'users/' + username);
+            const snapshot = await get(userRef);
+
+            if (snapshot.exists()) {
+                const userData = snapshot.val();
+                document.getElementById('user-id').innerText = username;
+                document.getElementById('earn-amount').innerText = userData.earnings || '0.00';
+            } else {
+                console.log("No user data found");
+            }
+        }
+
+        // Function to update earnings
+        async function updateEarnings(username, amount) {
+            const userRef = ref(database, 'users/' + username);
+            const snapshot = await get(userRef);
+
+            if (snapshot.exists()) {
+                const userData = snapshot.val();
+                const newEarnings = (parseFloat(userData.earnings) || 0) + amount;
+                await set(userRef, {
+                    ...userData,
+                    earnings: newEarnings.toFixed(2)
+                });
+                document.getElementById('earn-amount').innerText = newEarnings.toFixed(2);
+            }
+        }
+
+        // Initialize the page
+        const { username } = getQueryParams();
+        if (username) {
+            loadUserData(username);
+        } else {
+            console.log("No username provided in query parameters");
+        }
+
+        // Load IMA SDK
+        function loadIMASDK() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = "https://imasdk.googleapis.com/js/sdkloader/ima3.js";
+                script.async = true;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Show rewarded ad
+        function showRewardedAd(username, amount) {
+            const adUnitId = 'ca-app-pub-1490616159903151/9414609256';
+            const adDisplayContainer = new google.ima.AdDisplayContainer(document.getElementById('container'));
+            const adsLoader = new google.ima.AdsLoader(adDisplayContainer);
+
+            adsLoader.addEventListener(
+                google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
+                (adsManagerLoadedEvent) => {
+                    const adsManager = adsManagerLoadedEvent.getAdsManager();
+                    adsManager.init(640, 360, google.ima.ViewMode.NORMAL);
+                    adsManager.start();
+
+                    adsManager.addEventListener(
+                        google.ima.AdEvent.Type.COMPLETE,
+                        () => {
+                            updateEarnings(username, amount);
+                        }
+                    );
+                },
+                false
+            );
+
+            adsLoader.addEventListener(
+                google.ima.AdErrorEvent.Type.AD_ERROR,
+                (adErrorEvent) => {
+                    console.error('Failed to load rewarded ad:', adErrorEvent.getError());
+                },
+                false
+            );
+
+            const adsRequest = new google.ima.AdsRequest();
+            adsRequest.adTagUrl = `https://pubads.g.doubleclick.net/gampad/ads?iu=${adUnitId}&description_url=${encodeURIComponent(window.location.href)}&env=vp&output=vast&unviewed_position_start=1&sdkv=3.26.0&correlator=${Date.now()}`;
+            adsLoader.requestAds(adsRequest);
+        }
+
+        // Event listeners for ad buttons
+        loadIMASDK().then(() => {
+            document.getElementById('ad-loader1').addEventListener('click', () => showRewardedAd(username, 0.50));
+            document.getElementById('ad-loader2').addEventListener('click', () => showRewardedAd(username, 0.50));
+            document.getElementById('ad-loader3').addEventListener('click', () => showRewardedAd(username, 0.50));
+            document.getElementById('ad-loader4').addEventListener('click', () => showRewardedAd(username, 0.50));
+        }).catch(err => {
+            console.error('Failed to load IMA SDK', err);
+        });
+    </script>
+</body>
+</html>

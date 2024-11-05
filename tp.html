@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Earn with tp-coin">
+    <meta name="theme-color" content="#10121f">
+    <meta name="keywords" content="earn a lot of money with Tp-point">
+    <meta name="author" content="BIOR REVOLUTION">
+    <link rel="icon" href="logo.png">
+    <title>Tp-point</title>
+    <link rel="stylesheet" href="tp.css">
+</head>
+<body>
+    <div id="container">
+        <div id="user-id"></div><br><br>
+        <div id="earn-con"><br><br>
+            <div id="earn-tp"><b>TP</b></div>
+            <div id="earn"><b id="earn-amount">0.00</b></div>
+        </div><br><br>
+        <div id="ads-loader">
+            <button id="ad-loader1" class="ad-button">
+                <span>🚀</span><br>
+                <span id="amt1">Tp 0.50</span>
+            </button>
+            <button id="ad-loader2" class="ad-button">
+                <span>🚀</span><br>
+                <span id="amt2">Tp 0.50</span>
+            </button><br><br>
+            <button id="ad-loader3" class="ad-button">
+                <span>🚀</span><br>
+                <span id="amt3">Tp 0.50</span>
+            </button>
+            <button id="ad-loader4" class="ad-button">
+                <span>🚀</span><br>
+                <span id="amt4">Tp 0.50</span>
+            </button>
+        </div>
+        <div id="timer-container" style="display: none;">
+            <div id="timer">0:00:00</div>
+        </div><br><br><br>
+        <div id="watch-video"><br><br>
+         <p id="wrd"> Go for unlimited claiming of rewards </p>
+            <div id="video">
+                <!-- Video buttons will be dynamically added here -->
+                
+            </div>
+        </div>
+        <div id="bottom-menu">
+            <button id="chat-btn-img">
+                <img src="chat.png" id="chat"><br>
+                <span id="btn-text6" class="text">Chat</span>
+            </button>
+            <button id="combo-btn-img">
+                <img src="earn.png" id="combo"><br>
+                <span id="btn-text2" class="text">Earn</span>
+            </button>
+            <button id="task-btn-emo">
+                <span id="home">🚀</span><br>
+                <span id="btn-text3" class="text">Home</span>
+            </button>
+            <button id="invite-btn-img">
+                <img src="bell1.png" id="invite"><br>
+                <span id="btn-text4" class="text">Update</span>
+            </button>
+            <button id="wallet-btn-img">
+                <img src="wallet1.png" id="wallet"><br>
+                <span id="btn-text5" class="text">Wallet</span>
+            </button>
+        </div>
+        <div id="wallet-screen" class="screen">
+            <div id="wallet-space">
+                <h1>Connect Wallet</h1>
+                <br><br>
+                
+                
+               <div id="validCode">
+                   
+               
+                
+                </div>
+                <p id="green">copied</p><br><br><br><br>
+                <button id="connectWal" disabled>Wallet</button>
+                <p id="coming">coming soon</p><br><br><br>
+                  
+            </div>
+        </div>
+        <div id="update-screen" class="screen">
+            <div id="update">
+                <span>Total user</span> = <span>0</span><br><br>
+                <span>Total earning</span> = <span>0</span><br><br>
+                <span>Higest Earner</span> = <span id="user-name"></span>
+              
+            
+            </div>
+            <div id="coop">
+                    <p id="sky">Receive Real time update</p>
+                    <div id="message">
+                        
+                    </div>
+                </div>
+        </div>
+        <div id="earn-screen" class="screen">
+           <h1>Earn</h1>
+            <div id="tell-container">
+                <img src="telegram.png" alt="telegram" class="icon"><br>
+                <h3 id="dis">Join tp group</h3>
+                <button id="go-tell" onclick="openPageTell()">Go</button>
+            </div><br>
+            <div id="show-go-tell">
+                <img src="back.png" alt="back" id="back" onclick="closePageTell()">
+                <div id="talk">
+                    <p id="disc">Join this and experience real time update on tp-point, You won't regret it <br> Click the button to join Now  </p>
+                <button class="style" id="show" onclick="window.location.href = 'https://t.me/tppointblog'">Go</button>
+            
+            </div>
+            </div>
+              <div id="show-go-tik">
+                <img src="back.png" alt="back" id="backTik" onclick="closePageTik()">
+                <div id="talk">
+                    <p id="disc"> Follow and us for an excellent experience on tp-point </p>
+                <button class="style" id="showTik" onclick="window.location.href ='https://tiktok.com/@tppoint0'">Go</button>
+                </div>
+            </div>
+            <div id="tik-container">
+                <img src="tiktok.png" class="icon" alt="tik">
+                <h3 id="dis">Follow Us Now</h3>
+                <button id="go-tik" onclick="openPageTik()">Go</button>
+            </div><br>
+             <div id="show-go-face">
+                <img src="back.png" alt="back" id="backFace" onclick="closePageFace()">
+                <div id="talk">
+                    <p id="disc"> Follow us  on Facebook for an excellent experience on tp-point </p>
+                <button class="style" id="showFace" onclick="window.location.href ='https://www.facebook.com/profile.php?id=61564956082496&mibextid=ZbWKwL'">Go</button>
+                </div>
+            </div>
+            <div id="face-con">
+                <img src="facebook.png" alt="face" class="icon">
+                <h3 id="dis">Follow Us Now</h3>
+                <button onclick="openPageFace()" id="go-face">Go</button>
+            </div><br>
+            <div id="show-go-insta">
+                <img src="back.png" alt="back" id="backInsta" onclick="closePageInsta()">
+                <div id="talk">
+                    <p id="disc"> Follow and us for an excellent experience on tp-point </p>
+                <button class="style" id="showInsta" onclick="window.location.href ='https://www.instagram.com/tppoint7/'">Go</button>
+                </div>
+            </div>
+            <div id="insta-con">
+                <img src="instagram.png" alt="insta" class="icon">
+                <h3 id="dis">Follow Us Now</h3>
+                <button onclick="openPageInsta()" id="go-insta">Go</button>
+            </div><br>
+             <div id="show-go-you">
+                <img src="back.png" alt="back" id="backYou" onclick="closePageYou()">
+                <div id="talk">
+                    <p id="disc"> Suscribe and us for an excellent experience on tp-point </p>
+                <button class="style" id="showYou" onclick="window.location.href ='https://www.youtube.com/@Tp-point'">Go</button>
+                </div>
+            </div>
+            <div id="you-con">
+                <img src="watch.png" alt="youtube" class="icon">
+                <h3 id="dis">Suscribe Now</h3>
+                <button onclick="openPageYou()" id="go-you">Go</button>
+            </div>
+        </div>
+        <div id="chat-screen" class="screen">
+            <div id="containerChat">
+                <img src="telegram.png" alt="telegram" id="tele">
+                <h3>Join our telegram chat now </h3>
+                <button id="join" onclick="window.location.href = 'https://t.me/tppointblog'">Join </button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getDatabase, ref, get, onValue, update, set } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAlQKhm95HtsCl8tIigbydIDMSM40U7ky0",
+    authDomain: "tp-point.firebaseapp.com",
+    projectId: "tp-point",
+    storageBucket: "tp-point.appspot.com",
+    messagingSenderId: "552342557568",
+    appId: "1:552342557568:web:4a37d110d655ad02c56765"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        username: params.get('username')
+    };
+}
+
+async function loadUserData(username) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            document.getElementById('user-id').innerText = username;
+            document.getElementById('earn-amount').innerText = userData.earnings || '0.00';
+            document.getElementById('message').innerText = userData.message || '';  // Fetch and display the message
+            updateAdButtons(userData);
+            updateVideoButtons(userData.hrefs, userData.claimedVideos);
+        } else {
+            disableApp("User not found");
+        }
+    } catch (error) {
+        console.error("Error loading user data:", error);
+        disableApp("Error loading user data");
+    
+        
+}}
+
+async function handleClaimClick(videoKey) {
+    try {
+        // Update the earnings by adding 2.00
+        await updateEarnings(username, 0.10);
+
+        // Find the action button for the video and update its text
+        const actionBtn = document.querySelector(`#video-container[data-key="${videoKey}"] button`);
+        if (actionBtn) {
+            actionBtn.innerText = 'Claimed';
+            actionBtn.disabled = true; // Disable the button after claiming
+        }
+
+        // Update the claim state in the database
+        await updateVideoClaimState(videoKey);
+    } catch (error) {
+        console.error("Error handling claim click:", error);
+    }
+}
+
+function updateVideoButtons(hrefs, claimedVideos) {
+    const videoContainer = document.getElementById('video');
+    videoContainer.innerHTML = ''; // Clear any existing content
+
+    if (hrefs) {
+        Object.keys(hrefs).forEach((key) => {
+            const videoHref = hrefs[key];
+            const claimed = claimedVideos && claimedVideos[key];
+
+            // Create a new container for each video
+            const newVideoContainer = document.createElement('div');
+            newVideoContainer.classList.add('video-container');
+            newVideoContainer.setAttribute('data-key', key);
+
+            // Create the button for watching the video or claiming the reward
+            const actionBtn = document.createElement('button');
+            actionBtn.innerText = claimed ? 'Claim' : 'Go';
+            actionBtn.id = 'watchBtn';
+            actionBtn.classList.add('video-button');
+            actionBtn.onclick = async () => {
+                if (!claimed) {
+                    // If the button is 'Go', redirect to the video and update button text
+                    window.location.href = videoHref;
+                    // Update the button text to 'Claim'
+                    actionBtn.innerText = 'Claim';
+                    // Optionally update the claim state in the database
+                    await updateVideoClaimState(key);
+                } else {
+                    await handleClaimClick(key);
+                }
+            };
+
+            const watchImg = document.createElement('img');
+            watchImg.src = 'watch.png';
+            watchImg.alt = 'watch';
+            watchImg.id = 'watch';
+
+            const watchTxt = document.createElement('h3');
+            watchTxt.innerText = 'watch';
+            watchTxt.id = 'watchtxt';
+
+            // Append elements to the new container
+            newVideoContainer.appendChild(watchImg);
+            newVideoContainer.appendChild(watchTxt);
+            newVideoContainer.appendChild(actionBtn);
+            newVideoContainer.appendChild(document.createTextNode(` Tp 1.00`));
+
+            // Append the new video container to the main video container
+            videoContainer.appendChild(newVideoContainer);
+        });
+    } else {
+        const noVideoMessage = document.createElement('p');
+        noVideoMessage.innerText = 'No videos available';
+        videoContainer.appendChild(noVideoMessage);
+    }
+}
+
+// Add this code to handle the "Show" button click
+document.getElementById('show').addEventListener('click', async function() {
+    const goTellBtn = document.getElementById('go-tell');
+    goTellBtn.innerText = 'Claim';
+    await updateButtonStateTik('go-tell', 'Claim');
+});
+
+// Remove the `if (currentText === 'Go')` condition from the "go-tell" button click event
+document.getElementById('go-tell').addEventListener('click', async function() {
+    const button = this;
+    const currentText = button.innerText;
+
+    if (currentText === 'Claim') {
+        // Add 50.00 to the earn-amount, change the button text to "Claimed", and update the database
+        await updateEarnings(username, 50.00);
+        button.innerText = 'Claimed';
+        button.disabled = true; // Optionally disable the button to prevent further clicks
+        await updateButtonStateYou('go-tell', 'Claimed');
+    }
+});
+
+async function updateButtonState(buttonId, state) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`buttonStates/${buttonId}`]: state
+        });
+    } catch (error) {
+        console.error("Error updating button state:", error);
+    }
+}
+
+async function loadButtonStates() {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const buttonStates = userData.buttonStates || {};
+
+            Object.keys(buttonStates).forEach(buttonId => {
+                const state = buttonStates[buttonId];
+                const button = document.getElementById(buttonId);
+                
+                if (button) {
+                    button.innerText = state;
+                    if (state === 'Claimed') {
+                        button.disabled = true;
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error loading button states:", error);
+    }
+}
+
+// Call loadButtonStates after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadButtonStates();
+});
+
+// Add this code to handle the "Show" button click
+document.getElementById('showTik').addEventListener('click', async function() {
+    const goTellBtn = document.getElementById('go-tik');
+    goTellBtn.innerText = 'Claim';
+    await updateButtonStateTik('go-tik', 'Claim');
+});
+
+// Remove the `if (currentText === 'Go')` condition from the "go-tell" button click event
+document.getElementById('go-tik').addEventListener('click', async function() {
+    const button = this;
+    const currentText = button.innerText;
+
+    if (currentText === 'Claim') {
+        // Add 50.00 to the earn-amount, change the button text to "Claimed", and update the database
+        await updateEarnings(username, 50.00);
+        button.innerText = 'Claimed';
+        button.disabled = true; // Optionally disable the button to prevent further clicks
+        await updateButtonStateTik('go-tik', 'Claimed');
+    }
+});
+
+async function updateButtonStateTik(buttonId, state) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`buttonStates/${buttonId}`]: state
+        });
+    } catch (error) {
+        console.error("Error updating button state:", error);
+    }
+}
+
+async function loadButtonStatesTik() {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const buttonStates = userData.buttonStates || {};
+
+            Object.keys(buttonStates).forEach(buttonId => {
+                const state = buttonStates[buttonId];
+                const button = document.getElementById(buttonId);
+                
+                if (button) {
+                    button.innerText = state;
+                    if (state === 'Claimed') {
+                        button.disabled = true;
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error loading button states:", error);
+    }
+}
+
+// Call loadButtonStates after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadButtonStatesTik();
+});
+ 
+ // Add this code to handle the "Show" button click
+document.getElementById('showYou').addEventListener('click', async function() {
+    const goTellBtn = document.getElementById('go-you');
+    goTellBtn.innerText = 'Claim';
+    await updateButtonStateYou('go-you', 'Claim');
+});
+
+// Remove the `if (currentText === 'Go')` condition from the "go-tell" button click event
+document.getElementById('go-you').addEventListener('click', async function() {
+    const button = this;
+    const currentText = button.innerText;
+
+    if (currentText === 'Claim') {
+        // Add 50.00 to the earn-amount, change the button text to "Claimed", and update the database
+        await updateEarnings(username, 50.00);
+        button.innerText = 'Claimed';
+        button.disabled = true; // Optionally disable the button to prevent further clicks
+        await updateButtonStateYou('go-you', 'Claimed');
+    }
+});
+
+async function updateButtonStateYou(buttonId, state) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`buttonStates/${buttonId}`]: state
+        });
+    } catch (error) {
+        console.error("Error updating button state:", error);
+    }
+}
+
+async function loadButtonStatesYou() {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const buttonStates = userData.buttonStates || {};
+
+            Object.keys(buttonStates).forEach(buttonId => {
+                const state = buttonStates[buttonId];
+                const button = document.getElementById(buttonId);
+                
+                if (button) {
+                    button.innerText = state;
+                    if (state === 'Claimed') {
+                        button.disabled = true;
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error loading button states:", error);
+    }
+}
+
+// Call loadButtonStates after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadButtonStatesYou();
+});
+ 
+ document.getElementById('showFace').addEventListener('click', async function() {
+    const goTellBtn = document.getElementById('go-face');
+    goTellBtn.innerText = 'Claim';
+    await updateButtonStateFace('go-face', 'Claim');
+});
+
+// Remove the `if (currentText === 'Go')` condition from the "go-tell" button click event
+document.getElementById('go-face').addEventListener('click', async function() {
+    const button = this;
+    const currentText = button.innerText;
+
+    if (currentText === 'Claim') {
+        // Add 50.00 to the earn-amount, change the button text to "Claimed", and update the database
+        await updateEarnings(username, 50.00);
+        button.innerText = 'Claimed';
+        button.disabled = true; // Optionally disable the button to prevent further clicks
+        await updateButtonStateFace('go-face', 'Claimed');
+    }
+});
+
+
+document.getElementById('showInsta').addEventListener('click', async function() {
+    const goTellBtn = document.getElementById('go-insta');
+    goTellBtn.innerText = 'Claim';
+    await updateButtonStateInsta('go-insta', 'Claim');
+});
+
+// Remove the `if (currentText === 'Go')` condition from the "go-tell" button click event
+document.getElementById('go-insta').addEventListener('click', async function() {
+    const button = this;
+    const currentText = button.innerText;
+
+    if (currentText === 'Claim') {
+        // Add 50.00 to the earn-amount, change the button text to "Claimed", and update the database
+        await updateEarnings(username, 50.00);
+        button.innerText = 'Claimed';
+        button.disabled = true; // Optionally disable the button to prevent further clicks
+        await updateButtonStateInsta('go-insta', 'Claimed');
+    }
+});
+
+async function updateButtonStateInsta(buttonId, state) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`buttonStates/${buttonId}`]: state
+        });
+    } catch (error) {
+        console.error("Error updating button state:", error);
+    }
+}
+
+async function loadButtonStatesInsta() {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const buttonStates = userData.buttonStates || {};
+
+            Object.keys(buttonStates).forEach(buttonId => {
+                const state = buttonStates[buttonId];
+                const button = document.getElementById(buttonId);
+                
+                if (button) {
+                    button.innerText = state;
+                    if (state === 'Claimed') {
+                        button.disabled = true;
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error loading button states:", error);
+    }
+}
+
+// Call loadButtonStates after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadButtonStatesInsta();
+});
+async function updateButtonStateFace(buttonId, state) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`buttonStates/${buttonId}`]: state
+        });
+    } catch (error) {
+        console.error("Error updating button state:", error);
+    }
+}
+
+async function loadButtonStatesFace() {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const buttonStates = userData.buttonStates || {};
+
+            Object.keys(buttonStates).forEach(buttonId => {
+                const state = buttonStates[buttonId];
+                const button = document.getElementById(buttonId);
+                
+                if (button) {
+                    button.innerText = state;
+                    if (state === 'Claimed') {
+                        button.disabled = true;
+                    }
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Error loading button states:", error);
+    }
+}
+
+// Call loadButtonStates after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadButtonStatesFace();
+});
+
+async function updateEarnings(username, amount) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+
+        if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const newEarnings = (parseFloat(userData.earnings) || 0) + amount;
+            await update(userRef, {
+                earnings: newEarnings.toFixed(2)
+            });
+            document.getElementById('earn-amount').innerText = newEarnings.toFixed(2);
+        }
+    } catch (error) {
+        console.error("Error updating earnings:", error);
+    }
+}
+
+
+function setupRealTimeUpdates() {
+    const usersRef = ref(database, 'users');
+
+    onValue(usersRef, (snapshot) => {
+        if (snapshot.exists()) {
+            const usersData = snapshot.val();
+            let totalEarnings = 0;
+            let totalUsers = 0;
+            let highestEarner = { username: '', earnings: 0 };
+
+            Object.keys(usersData).forEach((username) => {
+                const user = usersData[username];
+                const earnings = parseFloat(user.earnings) || 0;
+
+                totalEarnings += earnings;
+                totalUsers++;
+
+                if (earnings > highestEarner.earnings) {
+                    highestEarner = { username, earnings };
+                }
+            });
+
+            document.querySelector('#update span:nth-child(2)').innerText = totalUsers;
+            document.querySelector('#update span:nth-child(6)').innerText = totalEarnings.toFixed(2);
+            document.getElementById('user-name').innerText = highestEarner.username || 'N/A';
+        } else {
+            console.error("No users data found");
+        }
+    }, (error) => {
+        console.error("Error fetching data:", error);
+    });
+}
+
+// Call this function to set up real-time updates
+setupRealTimeUpdates();
+async function updateVideoClaimState(videoKey) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`claimedVideos/${videoKey}`]: true
+        });
+    } catch (error) {
+        console.error("Error updating video claim state:", error);
+    }
+}
+
+function disableApp(message) {
+    
+    document.getElementById('earn-amount').innerText = '0.00';
+    document.getElementById('wrd').style.display = 'none';
+    document.querySelectorAll('.ad-button').forEach(button => {
+        button.disabled = true;
+    });
+}
+// Generate the code and save it in the validCode div
+function generateAndDisplayCode(username) {
+    const code = `connec_tp${username}`;
+    document.getElementById('validCode').innerText = code;
+
+    // Save the code to the database
+    saveCodeToDatabase(username, code);
+}
+
+// Function to save the generated code to the database
+async function saveCodeToDatabase(username, code) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, { validCode: code });
+    } catch (error) {
+        console.error('Error saving code to database:', error);
+    }
+}
+
+// Handle click on the validCode div
+document.getElementById('validCode').addEventListener('click', function() {
+    const code = this.innerText;
+    if (code) {
+        copyToClipboard(code);
+    }
+});
+
+// Call the function to generate and display the code after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const { username } = getQueryParams();
+    if (username) {
+        generateAndDisplayCode(username);
+    }
+});
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('green').style.display = 'block';
+    }).catch(err => {
+        console.error('Error copying text: ', err);
+    });
+}
+
+document.getElementById('validCode').addEventListener('click', function() {
+setTimeout(function() {
+    document.getElementById('green').style.display = 'none';
+}, 5000)
+});
+
+
+ 
+
+window.closePageTell = function() {
+    document.getElementById("show-go-tell").style.display = 'none';
+}
+
+window.openPageTell = function() {
+    document.getElementById("show-go-tell").style.display = 'block';
+}
+
+window.openPageTik = function() {
+    document.getElementById("show-go-tik").style.display = 'block';
+    
+}
+
+window.closePageTik = function() {
+    document.getElementById("show-go-tik").style.display = 'none';
+    
+}
+
+window.openPageYou = function() {
+    document.getElementById("show-go-you").style.display = 'block';
+    
+}
+
+window.closePageYou = function() {
+    document.getElementById("show-go-you").style.display = 'none';
+    
+}
+
+window.openPageFace = function() {
+    document.getElementById("show-go-face").style.display = 'block';
+    
+}
+window.closePageFace = function() {
+    document.getElementById("show-go-face").style.display = 'none';
+    
+}
+
+window.openPageInsta = function() {
+    document.getElementById("show-go-insta").style.display = 'block';
+    
+}
+
+window.closePageInsta = function() {
+    document.getElementById("show-go-insta").style.display = 'none';
+    
+}
+function activateMenu(menu) {
+    document.getElementById('combo').src = 'earn.png';
+    document.getElementById('invite').src = 'bell1.png';
+    document.getElementById('wallet').src = 'wallet1.png';
+    document.getElementById('chat').src = 'chat.png';
+    document.getElementById('btn-text2').style.color = '';
+    document.getElementById('btn-text3').style.color = '';
+    document.getElementById('btn-text4').style.color = '';
+    document.getElementById('btn-text5').style.color = '';
+    document.getElementById('btn-text6').style.color = '';
+
+    document.getElementById('earn-screen').style.display = 'none';
+    document.getElementById('update-screen').style.display = 'none';
+    document.getElementById('wallet-screen').style.display = 'none';
+    document.getElementById('chat-screen').style.display = 'none';
+
+    switch (menu) {
+        case 'home':
+            document.getElementById('btn-text3').style.color = 'yellow';
+            break;
+        case 'combo':
+            document.getElementById('combo').src = 'earn2.png';
+            document.getElementById('btn-text2').style.color = 'yellow';
+            document.getElementById('earn-screen').style.display = 'block';
+            break;
+        case 'invite':
+            document.getElementById('invite').src = 'bell.png';
+            document.getElementById('btn-text4').style.color = 'yellow';
+            document.getElementById('update-screen').style.display = 'block';
+            
+            break;
+        case 'wallet':
+            document.getElementById('wallet').src = 'wallet.png';
+            document.getElementById('btn-text5').style.color = 'yellow';
+            document.getElementById('wallet-screen').style.display = 'block';
+            break;
+        case 'chat':
+            document.getElementById('chat').src = 'chat1.png';
+            document.getElementById('btn-text6').style.color = 'yellow';
+            document.getElementById('chat-screen').style.display = 'block';
+            break;
+    }
+}
+
+
+async function handleAdClick(buttonId, username) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        const snapshot = await get(userRef);
+        if (!snapshot.exists()) {
+            console.error("User data does not exist");
+            return;
+        }
+
+        const userData = snapshot.val();
+        const adClicked = userData.adsClicked || {};
+        const currentTime = new Date().getTime();
+
+        if (userData.lastClickedTime && currentTime < userData.lastClickedTime) {
+            console.log("Ad is still in cooldown");
+            return;
+        }
+
+        document.getElementById(buttonId).style.display = 'none';
+        await updateAdClickState(username, buttonId);
+        await updateEarnings(username, 0.50);
+
+        adClicked[buttonId] = true;
+        const allAdsClicked = Object.keys(adClicked).length === 4 && Object.values(adClicked).every(val => val);
+
+        if (allAdsClicked) {
+            const resetTime = currentTime + 300000; // 5 minutes in milliseconds
+            await update(userRef, {
+                lastClickedTime: resetTime
+            });
+            showTimer(resetTime);
+        }
+    } catch (error) {
+        console.error("Error handling ad click:", error);
+    }
+}
+
+async function updateAdClickState(username, buttonId) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            [`adsClicked/${buttonId}`]: true
+        });
+    } catch (error) {
+        console.error("Error updating ad click state:", error);
+    }
+}
+
+function updateAdButtons(userData) {
+    const ads = ['ad-loader1', 'ad-loader2', 'ad-loader3', 'ad-loader4'];
+    const adClicked = userData.adsClicked || {};
+
+    ads.forEach(adId => {
+        if (adClicked[adId]) {
+            document.getElementById(adId).style.display = 'none';
+        }
+    });
+
+    const currentTime = new Date().getTime();
+    if (userData.lastClickedTime && currentTime < userData.lastClickedTime) {
+        const remainingTime = userData.lastClickedTime - currentTime;
+        showTimer(userData.lastClickedTime);
+    } else {
+        resetAdButtons(username);
+    }
+}
+
+async function resetAdButtons(username) {
+    try {
+        const userRef = ref(database, 'users/' + username);
+        await update(userRef, {
+            adsClicked: {
+                'ad-loader1': false,
+                'ad-loader2': false,
+                'ad-loader3': false,
+                'ad-loader4': false
+            }
+        });
+        document.querySelectorAll('#ads-loader button').forEach(button => {
+            button.style.display = 'inline-block';
+        });
+        document.getElementById('timer-container').style.display = 'none';
+    } catch (error) {
+        console.error("Error resetting ad buttons:", error);
+    }
+}
+
+function showTimer(endTime) {
+    const timerContainer = document.getElementById('timer-container');
+    const timerElement = document.getElementById('timer');
+    timerContainer.style.display = 'block';
+
+    function updateTimer() {
+        const currentTime = new Date().getTime();
+        const remainingTime = endTime - currentTime;
+        if (remainingTime <= 0) {
+            timerElement.innerText = '0:00:00';
+            timerContainer.style.display = 'none';
+            clearInterval(timerInterval);
+            resetAdButtons(username);
+            return;
+        }
+
+        const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+        const milliseconds = Math.floor((remainingTime % 1000) / 10);
+
+        timerElement.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}:${milliseconds < 10 ? '0' : ''}${milliseconds}`;
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 10);
+}
+
+const { username } = getQueryParams();
+if (username) {
+    loadUserData(username);
+} else {
+    disableApp("No username provided in query parameters");
+}
+
+document.getElementById('ad-loader1').addEventListener('click', () => handleAdClick('ad-loader1', username));
+document.getElementById('ad-loader2').addEventListener('click', () => handleAdClick('ad-loader2', username));
+document.getElementById('ad-loader3').addEventListener('click', () => handleAdClick('ad-loader3', username));
+document.getElementById('ad-loader4').addEventListener('click', () => handleAdClick('ad-loader4', username));
+
+// Bottom menu button event listeners
+document.getElementById('chat-btn-img').addEventListener('click', () => activateMenu('chat'));
+document.getElementById('combo-btn-img').addEventListener('click', () => activateMenu('combo'));
+document.getElementById('task-btn-emo').addEventListener('click', () => activateMenu('home'));
+document.getElementById('invite-btn-img').addEventListener('click', () => activateMenu('invite'));
+document.getElementById('wallet-btn-img').addEventListener('click', () => activateMenu('wallet'));
+    </script>
+</body>
+</html>

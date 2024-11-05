@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page title</title>
+</head>
+<body>
+    <div id="container">
+        <!-- Section to add href inputs dynamically -->
+        <div id="href-list">
+            <input type="text" class="href-input" placeholder="Enter href" data-id="1">
+        </div>
+        <button id="add-href">Add Href</button>
+        <button id="post">Post Hrefs</button><br><br><br>
+        <div id="send-mes">
+            <textarea id="message-input" placeholder="Enter your message here"></textarea>
+            <button id="post-mes">Post Message</button>
+        </div>
+        <button id="launchFalse">Stop Launch</button>
+        <button id="launchTrue">Launch</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlQKhm95HtsCl8tIigbydIDMSM40U7ky0",
+            authDomain: "tp-point.firebaseapp.com",
+            projectId: "tp-point",
+            storageBucket: "tp-point.appspot.com",
+            messagingSenderId: "552342557568",
+            appId: "1:552342557568:web:4a37d110d655ad02c56765"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Function to add new href input
+        let hrefCounter = 1;
+        document.getElementById('add-href').addEventListener('click', () => {
+            hrefCounter++;
+            const hrefList = document.getElementById('href-list');
+            const newHrefInput = document.createElement('input');
+            newHrefInput.type = 'text';
+            newHrefInput.className = 'href-input';
+            newHrefInput.placeholder = `Enter href ${hrefCounter}`;
+            newHrefInput.setAttribute('data-id', hrefCounter);
+            hrefList.appendChild(newHrefInput);
+        });
+
+        // Function to generate a unique 5-digit ID
+        function generateUniqueId() {
+            return Math.floor(10000 + Math.random() * 90000).toString();
+        }
+
+        // Post Hrefs button event listener
+        document.getElementById('post').addEventListener('click', async () => {
+            const hrefInputs = document.querySelectorAll('.href-input');
+            const hrefData = {};
+
+            hrefInputs.forEach(input => {
+                const hrefValue = input.value;
+
+                if (hrefValue) {
+                    const uniqueId = generateUniqueId(); // Generate the unique 5-digit ID
+                    hrefData[uniqueId] = hrefValue;
+                }
+            });
+
+            if (Object.keys(hrefData).length > 0) {
+                try {
+                    // Reference to all users in the database
+                    const usersRef = ref(db, 'users');
+
+                    // Get all users from the database
+                    const snapshot = await get(usersRef);
+
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+
+                        // Update each user's hrefs individually
+                        for (const userId in users) {
+                            const userHrefRef = ref(db, `users/${userId}/hrefs`);
+                            await set(userHrefRef, hrefData);
+                        }
+
+                        alert("All hrefs updated for all users.");
+                    } else {
+                        alert("No users found.");
+                    }
+                } catch (error) {
+                    console.error("Error updating hrefs for all users:", error);
+                    alert("Failed to update hrefs.");
+                }
+            } else {
+                alert("Please enter at least one href.");
+            }
+        });
+
+        // Post Message button event listener
+        document.getElementById('post-mes').addEventListener('click', async () => {
+            const message = document.getElementById('message-input').value;
+
+            if (message.trim()) {
+                try {
+                    // Reference to all users in the database
+                    const usersRef = ref(db, 'users');
+
+                    // Get all users from the database
+                    const snapshot = await get(usersRef);
+
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+
+                        // Update each user's message individually
+                        for (const userId in users) {
+                            const userMessageRef = ref(db, `users/${userId}/message`);
+                            await set(userMessageRef, message);
+                        }
+
+                        alert("Message updated for all users.");
+                    } else {
+                        alert("No users found.");
+                    }
+                } catch (error) {
+                    console.error("Error updating message for all users:", error);
+                    alert("Failed to update message.");
+                }
+            } else {
+                alert("Please enter a message.");
+            }
+        });
+
+        // Launch True button event listener
+        document.getElementById('launchTrue').addEventListener('click', async () => {
+            try {
+                // Reference to all users in the database
+                const usersRef = ref(db, 'users');
+
+                // Get all users from the database
+                const snapshot = await get(usersRef);
+
+                if (snapshot.exists()) {
+                    const users = snapshot.val();
+
+                    // Update each user's launch status individually
+                    for (const userId in users) {
+                        const userLaunchRef = ref(db, `users/${userId}/launch`);
+                        await set(userLaunchRef, true);
+                    }
+
+                    alert("Launch status set to true for all users.");
+                } else {
+                    alert("No users found.");
+                }
+            } catch (error) {
+                console.error("Error updating launch status for all users:", error);
+                alert("Failed to update launch status.");
+            }
+        });
+
+        // Launch False button event listener
+        document.getElementById('launchFalse').addEventListener('click', async () => {
+            try {
+                // Reference to all users in the database
+                const usersRef = ref(db, 'users');
+
+                // Get all users from the database
+                const snapshot = await get(usersRef);
+
+                if (snapshot.exists()) {
+                    const users = snapshot.val();
+
+                    // Update each user's launch status individually
+                    for (const userId in users) {
+                        const userLaunchRef = ref(db, `users/${userId}/launch`);
+                        await set(userLaunchRef, false);
+                    }
+
+                    alert("Launch status set to false for all users.");
+                } else {
+                    alert("No users found.");
+                }
+            } catch (error) {
+                console.error("Error updating launch status for all users:", error);
+                alert("Failed to update launch status.");
+            }
+        });
+    </script>
+</body>
+</html>
